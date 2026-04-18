@@ -1,0 +1,121 @@
+/* =============================================
+   login.css — Login Screen
+   MUJ CabShare  |  Light Theme
+   ============================================= */
+
+#login-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #fff8e6 0%, #f5f6fa 60%);
+}
+
+.login-box {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--shadow);
+}
+
+/* ── Branding ── */
+.login-logo {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.login-logo span { color: var(--accent); }
+
+.login-tagline {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 32px;
+}
+
+/* ── Label ── */
+.login-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* ── Input ── */
+.login-input {
+  width: 100%;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 13px 16px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 10px;
+}
+
+.login-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(230,168,23,0.12);
+  background: var(--surface);
+}
+
+.login-hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.login-hint span { color: var(--accent); font-weight: 600; }
+
+/* ── Error ── */
+.login-error {
+  background: var(--red-bg);
+  border: 1px solid rgba(220,38,38,0.2);
+  color: var(--red);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-bottom: 14px;
+  display: none;
+}
+
+.login-error.show { display: block; }
+
+/* ── Button ── */
+.btn-login {
+  width: 100%;
+  padding: 14px;
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(230,168,23,0.25);
+}
+
+.btn-login:hover {
+  background: #d4970f;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(230,168,23,0.3);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .login-box { padding: 28px 20px; }
+}

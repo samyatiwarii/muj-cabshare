@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MUJ CabShare</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- ══════════════ LOGIN SCREEN ══════════════ -->
+  <div id="login-screen">
+    <div class="login-box">
+      <div class="login-logo">MUJ <span>CabShare</span></div>
+      <div class="login-tagline">Split cab fares with fellow MUJians 🚕</div>
+
+      <label class="login-label">College Email</label>
+      <input class="login-input" type="email" id="login-email"
+        placeholder="yourname@muj.manipal.edu"
+        onkeydown="if(event.key==='Enter') login()">
+      <div class="login-hint">Only <span>@muj.manipal.edu</span> emails are allowed</div>
+      <div class="login-error" id="email-error"></div>
+      <button class="btn-login" onclick="login()">Enter CabShare →</button>
+    </div>
+  </div>
+
+  <!-- ══════════════ MAIN APP ══════════════ -->
+  <div id="app">
+
+    <header>
+      <div class="logo">MUJ <span>CabShare</span></div>
+      <div class="nav-tabs">
+        <button class="nav-tab active" onclick="showView('browse')">🔍 Browse</button>
+        <button class="nav-tab" onclick="showView('post')">+ Post Ride</button>
+      </div>
+      <div class="header-right">
+        <div class="user-pill">
+          <div class="dot"></div>
+          <span id="user-email-display">–</span>
+        </div>
+        <button class="btn-logout" onclick="logout()">Logout</button>
+      </div>
+    </header>
+
+    <div class="container">
+
+      <!-- BROWSE VIEW -->
+      <div class="view active" id="view-browse">
+        <div class="stats-bar" id="stats-bar"></div>
+        <div class="rides-header">
+          <div class="rides-title">Available Rides</div>
+          <div class="filter-row">
+            <button class="filter-btn active" onclick="filterRides('all', this)">All</button>
+            <button class="filter-btn" onclick="filterRides('Railway Station', this)">🚂 Station</button>
+            <button class="filter-btn" onclick="filterRides('Airport', this)">✈️ Airport</button>
+            <button class="filter-btn" onclick="filterRides('Bus Stand', this)">🚌 Bus Stand</button>
+          </div>
+        </div>
+        <div class="rides-list" id="rides-list"></div>
+      </div>
+
+      <!-- POST VIEW -->
+      <div class="view" id="view-post">
+        <div class="form-card">
+          <div class="form-title">Post a Cab Ride</div>
+          <div class="form-subtitle">Split the fare, make the journey cheaper for everyone 🤝</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" id="inp-name" placeholder="e.g. Samya tiwari">
+            </div>
+            <div class="form-group">
+              <label>WhatsApp Number</label>
+              <input type="tel" id="inp-contact" placeholder="e.g. 9876543210" maxlength="10">
+            </div>
+            <div class="form-group full">
+              <label>Logged in as</label>
+              <div class="prefilled-field">
+                <span id="form-email-display">–</span>
+                <span class="lock-badge">✓ Verified MUJ</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>From</label>
+              <select id="inp-from">
+                <option value="MUJ Campus">MUJ Campus</option>
+                <option value="Railway Station">Railway Station (Jaipur)</option>
+                <option value="Airport">Jaipur Airport</option>
+                <option value="Bus Stand">Sindhi Camp Bus Stand</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>To</label>
+              <select id="inp-to">
+                <option value="Railway Station">Railway Station (Jaipur)</option>
+                <option value="Airport">Jaipur Airport</option>
+                <option value="Bus Stand">Sindhi Camp Bus Stand</option>
+                <option value="MUJ Campus">MUJ Campus</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" id="inp-date">
+            </div>
+            <div class="form-group">
+              <label>Time</label>
+              <input type="time" id="inp-time">
+            </div>
+            <div class="form-group">
+              <label>Seats Available (besides you)</label>
+              <select id="inp-seats">
+                <option value="1">1 seat</option>
+                <option value="2">2 seats</option>
+                <option value="3">3 seats</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Est. Fare per person (₹)</label>
+              <input type="number" id="inp-fare" placeholder="e.g. 200">
+            </div>
+            <div class="form-group full">
+              <label>Note (optional)</label>
+              <input type="text" id="inp-note" placeholder="e.g. Leaving from Gate 1, call before boarding">
+            </div>
+          </div>
+          <button class="btn-post" onclick="postRide()">🚕 Post My Ride</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- JavaScript -->
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/rides.js"></script>
+  <script src="js/utils.js"></script>
+</body>
+</html>
