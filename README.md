@@ -87,4 +87,3 @@ open index.html
 ## 👤 Author
 
 Made by a MUJ student, for MUJ students.  
-Feel free to fork, improve and deploy!
