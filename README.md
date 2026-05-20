@@ -2,7 +2,7 @@
 
 A lightweight cab fare-sharing web app for students of **Manipal University Jaipur (MUJ)**.  
 Instead of posting on WhatsApp groups, students can browse and post cab rides in one place — and contact each other directly via WhatsApp.
-
+https://muj-cabshare.vercel.app/
 ---
 
 ## ✨ Features
